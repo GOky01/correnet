@@ -27,9 +27,6 @@ export class AppComponent {
       .subscribe(
       response => {
         console.log(response);
-        if (response && response.message) {
-          this.fetchImageUrls();  // Fetch new URLs after successful upload
-        }
       },
       error => {
         console.error('There was an error during the upload: ', error);
@@ -37,7 +34,6 @@ export class AppComponent {
     );
 
   }
-
   updateImagesHtml() {
     this.imagesHtml = this.imageUrls.map(url => `<img src="${url}" alt="Uploaded Image">`).join('');
     console.log(this.imagesHtml);

@@ -1,10 +1,17 @@
 <div class="container">
-  <input type="file" (change)="onFileSelected($event)">
-  <button (click)="uploadImage()">Upload</button>
-  <input type="text" [(ngModel)]="searchQuery" placeholder="Search label">
-  <button (click)="searchImages()">Search</button>
+  <div class="file-upload-section">
+    <input type="file" (change)="onFileSelected($event)">
+    <button class="btn btn-primary" (click)="uploadImage()">Upload</button>
+  </div>
+
+  <div class="search-section">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search label">
+    <button class="btn btn-secondary" (click)="searchImages()">Search</button>
+  </div>
 
   <div class="image-gallery">
-    <img *ngFor="let imageUrl of imageUrls" [src]="imageUrl" alt="Uploaded Image">
+    <div class="image-wrapper" *ngFor="let imageUrl of imageUrls">
+      <img [src]="imageUrl" alt="Uploaded Image">
+    </div>
   </div>
 </div>
